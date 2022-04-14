@@ -23,7 +23,9 @@ import pandas as pd
 def process():
     logging.info("************************ process start ***************************************")
     try:
+        print("开始获取数据")
         all_data = ts.get_today_all()
+        print("数据获取完毕")
         subset = all_data[['code', 'name', 'nmc']]
         subset.to_csv(settings.config['stocks_file'], index=None, header=True)
         stocks = [tuple(x) for x in subset.values]
